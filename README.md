@@ -5,6 +5,6 @@
 2. download and scala 2.11.6 or later
 3. clone this project down onto your computer
 4. navigate to the project folder, one level in type "sbt"
-5. type compile
+5. type "compile"
 6. type "run test"
 7. have fun
