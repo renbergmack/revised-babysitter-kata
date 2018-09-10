@@ -2,12 +2,14 @@ package org.babysitter
 
 trait BabysitterTools {
 
-  def setStartTime(time: Int): Int = {
-      if (17 < time) {
-        time
-      } else {
-        17
-      }
+  val START_CUTOFF = 17
+
+  def setStartTime(startTime: Int): Int = {
+    if (START_CUTOFF < startTime) {
+      startTime
+    } else {
+      START_CUTOFF
+    }
   }
 
 }
