@@ -2,8 +2,12 @@ package org.babysitter
 
 trait BabysitterTools {
 
-  def setStartTime(): Int = {
-    17
+  def setStartTime(time: Int): Int = {
+      if (17 < time) {
+        time
+      } else {
+        17
+      }
   }
 
 }
