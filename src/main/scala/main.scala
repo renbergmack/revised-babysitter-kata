@@ -30,7 +30,8 @@ trait BabysitterTools {
   }
 
   def calculatePay(payRate: Int, hours: Int): Int = {
-    hours * payRate
+    val payToBedtime = hours * payRate
+    Math.abs(payToBedtime)
   }
 
   def payFromStartToBedtime(start: Int, end: Int, payRate: Int = 12): Int = {
