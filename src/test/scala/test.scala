@@ -16,11 +16,13 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "setEndTime" should "return 4 when a time later than 4 is declared" in {
-    setEndTime() should be (4)
+    val lateEnd: Int = 5
+    setEndTime(lateEnd) should be (4)
   }
 
   it should "return the end time when a time earlier than 4 is declared" in {
-    setEndTime() should be (3)
+    val lateEnd: Int = 3
+    setEndTime(lateEnd) should be (3)
   }
 
 }

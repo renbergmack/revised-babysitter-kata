@@ -12,8 +12,12 @@ trait BabysitterTools {
     }
   }
 
-  def setEndTime(): Int = {
-    4
+  def setEndTime(endTime: Int): Int = {
+    if (4 > endTime) {
+      endTime
+    } else {
+      4
+    }
   }
 
 }
