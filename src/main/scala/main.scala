@@ -21,4 +21,8 @@ trait BabysitterTools {
     }
   }
 
+  def roundToNextHour() = {
+    0
+  }
+
 }
