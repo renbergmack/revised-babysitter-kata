@@ -21,8 +21,8 @@ trait BabysitterTools {
     }
   }
 
-  def roundToNextHour() = {
-    18
+  def roundToNextHour(time: Double) = {
+    Math.ceil(time).toInt
   }
 
 }

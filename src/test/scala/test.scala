@@ -26,11 +26,13 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "roundToNextHour" should "return next hourly time when minutes less than 30" in {
-    roundToNextHour() should be (18)
+    val earlyStart: Double = 17.4
+    roundToNextHour(earlyStart) should be (18)
   }
 
   it should "return next hourly time when minutes more than 30" in {
-    roundToNextHour() should be (19)
+    val laterStart: Double = 18.6
+    roundToNextHour(laterStart) should be (19)
   }
 
 }
