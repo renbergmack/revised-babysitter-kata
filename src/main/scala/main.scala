@@ -26,7 +26,7 @@ trait BabysitterTools {
   }
 
   def payFromStartToBedtime() = {
-    None
+    0
   }
 
 }
