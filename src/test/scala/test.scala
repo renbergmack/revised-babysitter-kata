@@ -25,8 +25,12 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     setEndTime(lateEnd) should be (3)
   }
 
-  "roundToNextHour" should "return closest hourly time when minutes less than 30" in {
+  "roundToNextHour" should "return next hourly time when minutes less than 30" in {
     roundToNextHour() should be (18)
+  }
+
+  it should "return next hourly time when minutes more than 30" in {
+    roundToNextHour() should be (19)
   }
 
 }
