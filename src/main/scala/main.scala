@@ -12,4 +12,8 @@ trait BabysitterTools {
     }
   }
 
+  def setEndTime(): Int = {
+    0
+  }
+
 }
