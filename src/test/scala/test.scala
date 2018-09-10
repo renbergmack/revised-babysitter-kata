@@ -50,7 +50,15 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "calculatePay" should "return payment amount if time and pay rate are positive" in {
-    calculatePay() should be (24)
+    val hours: Int = 3
+    val payRate: Int = 8
+    calculatePay(hours, payRate) should be (24)
+  }
+
+  it should "return payment amount if time or pay rate are negative" in {
+    val hours: Int = -3
+    val payRate: Int = 8
+    calculatePay(hours, payRate) should be (24)
   }
 
   "payFromStartToBedtime" should "return no pay if start is past bedtime(21)" in {

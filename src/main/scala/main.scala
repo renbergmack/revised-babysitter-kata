@@ -29,8 +29,8 @@ trait BabysitterTools {
     time >= START_CUTOFF
   }
 
-  def calculatePay() = {
-    0
+  def calculatePay(payRate: Int, hours: Int): Int = {
+    hours * payRate
   }
 
   def payFromStartToBedtime(start: Int, end: Int, payRate: Int = 12): Int = {
