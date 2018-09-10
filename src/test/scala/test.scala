@@ -9,4 +9,8 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     setStartTime() should be (17)
   }
 
+  it should "return a the time when a time later than 17 is declared" in {
+    setStartTime() should be (18)
+  }
+
 }
