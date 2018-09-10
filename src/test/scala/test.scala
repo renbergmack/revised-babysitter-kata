@@ -35,4 +35,8 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     roundToNextHour(laterStart) should be (19)
   }
 
+  "payFromStartToBedtime" should "return no pay if start is past bedtime(21)" in {
+    payFromStartToBedtime() should be (0)
+  }
+
 }

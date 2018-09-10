@@ -25,4 +25,8 @@ trait BabysitterTools {
     Math.ceil(time).toInt
   }
 
+  def payFromStartToBedtime() = {
+    None
+  }
+
 }
