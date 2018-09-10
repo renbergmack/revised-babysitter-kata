@@ -3,6 +3,7 @@ package org.babysitter
 trait BabysitterTools {
 
   val START_CUTOFF = 17
+  val END_CUTOFF = 4
 
   def setStartTime(startTime: Int): Int = {
     if (START_CUTOFF < startTime) {
@@ -13,10 +14,10 @@ trait BabysitterTools {
   }
 
   def setEndTime(endTime: Int): Int = {
-    if (4 > endTime) {
+    if (END_CUTOFF > endTime) {
       endTime
     } else {
-      4
+      END_CUTOFF
     }
   }
 
