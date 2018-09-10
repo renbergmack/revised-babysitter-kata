@@ -25,9 +25,12 @@ trait BabysitterTools {
     Math.ceil(time).toInt
   }
 
-  def payFromStartToBedtime(start: Int, end: Int): Int = {
-    val payRate: Int = 12
-    if (start >= START_CUTOFF && end >= START_CUTOFF) {
+  def timeIsEqualOrAfterStartCutoff(time: Int): Boolean = {
+    time >= START_CUTOFF
+  }
+
+  def payFromStartToBedtime(start: Int, end: Int, payRate: Int = 12): Int = {
+    if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterStartCutoff(end)) {
       val workedHours = start - end
       val payToBedtime = workedHours * payRate
       Math.abs(payToBedtime)
