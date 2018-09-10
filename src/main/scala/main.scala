@@ -21,12 +21,19 @@ trait BabysitterTools {
     }
   }
 
-  def roundToNextHour(time: Double) = {
+  def roundToNextHour(time: Double): Int = {
     Math.ceil(time).toInt
   }
 
-  def payFromStartToBedtime() = {
-    0
+  def payFromStartToBedtime(start: Int, end: Int): Int = {
+    val payRate: Int = 12
+    if (start >= START_CUTOFF && end >= START_CUTOFF) {
+      val workedHours = start - end
+      val payToBedtime = workedHours * payRate
+      Math.abs(payToBedtime)
+    } else {
+      0
+    }
   }
 
 }
