@@ -65,6 +65,11 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrAfterStartCutoff(timeBeforeCutoff) should be (false)
   }
 
+  "timeIsEqualOrBeforeEndCutoff" should "return true if time is before end cutoff" in {
+    val timeBeforeCutoff: Int = 5
+    timeIsEqualOrBeforeEndCutoff(timeBeforeCutoff) should be (true)
+  }
+
   "calculatePay" should "return payment amount if time and pay rate are positive" in {
     val hours: Int = 3
     val payRate: Int = 8

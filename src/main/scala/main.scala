@@ -3,6 +3,7 @@ package org.babysitter
 trait BabysitterTools {
 
   val START_CUTOFF = 17
+  val BEDTIME = 21
   val END_CUTOFF = 4
 
   def setStartTime(startTime: Int): Int = {
@@ -34,6 +35,10 @@ trait BabysitterTools {
     time >= START_CUTOFF
   }
 
+  def timeIsEqualOrBeforeEndCutoff(time: Int): Boolean = {
+    false
+  }
+
   def timeIsEqualOrAfterEndCutoff(time: Int): Boolean = {
     time >= END_CUTOFF
   }
@@ -46,7 +51,7 @@ trait BabysitterTools {
       val workedHours = start - (end + START_CUTOFF)
       calculatePay(startToBedtimePay, workedHours)
     } else if (timeIsEqualOrAfterStartCutoff(start) && end <= END_CUTOFF) {
-      val workedHours = (21 - start)
+      val workedHours = BEDTIME - start
       calculatePay(startToBedtimePay, workedHours)
     } else {
       0
