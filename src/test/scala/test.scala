@@ -298,4 +298,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     payFromMidnightToEnd(start, end) should be (64)
   }
 
+  it should "return no pay when start and end are the same" in {
+    val start = 17
+    val end = 17
+    payFromMidnightToEnd(start, end) should be (0)
+  }
+
 }
