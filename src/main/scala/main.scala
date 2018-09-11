@@ -58,4 +58,8 @@ trait BabysitterTools {
     }
   }
 
+  def payFromBedtimeToMidnight(): Int = {
+    0
+  }
+
 }
