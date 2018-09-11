@@ -249,4 +249,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     payFromMidnightToEnd(start, end) should be (64)
   }
 
+  it should "return 16 dollar pay if end is after midnight" in {
+    val start = 24
+    val end = 5
+    payFromMidnightToEnd(start, end) should be (64)
+  }
+
 }
