@@ -197,6 +197,11 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     hoursWorkedBetweenMidnightAndEnd(end) should be (2)
   }
 
+  it should "return correct hours worked if time midnight" in {
+    val end: Int = 24
+    hoursWorkedBetweenMidnightAndEnd(end) should be (0)
+  }
+
   "payFromStartToBedtime" should "return no pay if start is past bedtime(21)" in {
     val start = 21
     val end = 4
