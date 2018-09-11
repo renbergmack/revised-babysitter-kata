@@ -45,7 +45,7 @@ trait BabysitterTools {
   }
 
   def timeIsEqualOrBeforeMidnight(time: Int): Boolean = {
-    false
+    time < MIDNIGHT
   }
 
   def payFromStartToBedtime(start: Int, end: Int, startToBedtimePay: Int = 12): Int = {
