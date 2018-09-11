@@ -32,6 +32,10 @@ trait BabysitterTools {
     Math.abs(payToBedtime)
   }
 
+  def hoursWorkedBetweenMidnightAndEnd(end: Int): Int = {
+    
+  }
+
   def timeIsEqualOrAfterStartCutoff(time: Int): Boolean = {
     time >= START_CUTOFF
   }
