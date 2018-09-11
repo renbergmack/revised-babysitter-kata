@@ -107,7 +107,7 @@ trait BabysitterTools {
     if (timeIsEqualOrAfterMidnight(start) && timeIsEqualOrBeforeEndCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
       val hoursWorked = hoursWorkedBetweenMidnightAndEnd(end)
       calculatePay(payRate, hoursWorked)
-    } else if ((start == MIDNIGHT || timeIsEqualOrBeforeEndCutoff(start)) && timeIsEqualOrAfterEndCutoff(end)) {
+    } else if ((timeIsMidnight(start) || timeIsEqualOrBeforeEndCutoff(start)) && timeIsEqualOrAfterEndCutoff(end)) {
       val hoursWorked = hoursWorkedBetweenMidnightAndEnd(end)
       calculatePay(payRate, hoursWorked)
     } else if (timeIsEqualOrAfterEndCutoff(start) && timeIsEqualOrBeforeMidnight(start) && timeIsEqualOrBeforeEndCutoff(end)) {
