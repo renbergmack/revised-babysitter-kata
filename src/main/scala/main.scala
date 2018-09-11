@@ -58,8 +58,13 @@ trait BabysitterTools {
     }
   }
 
-  def payFromBedtimeToMidnight(): Int = {
-    0
+  def payFromBedtimeToMidnight(start: Int, end: Int, payRate: Int = 8): Int = {
+    if (start >= BEDTIME && end <= 24) {
+      val hoursWorked = start - end
+      calculatePay(payRate, hoursWorked)
+    } else {
+      0
+    }
   }
 
 }
