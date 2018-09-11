@@ -292,4 +292,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     payFromMidnightToEnd(start, end) should be (64)
   }
 
+  it should "return pay when start is a negative number" in {
+    val start = -2
+    val end = 4
+    payFromMidnightToEnd(start, end) should be (64)
+  }
+
 }
