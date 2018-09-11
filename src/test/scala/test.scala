@@ -171,7 +171,7 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   it should "return false if start is before midnight" in {
-    val start: Int = 24
+    val start: Int = 23
     timeIsBetweenMidnightAndEndCutoff(start) should be (false)
   }
 
