@@ -34,7 +34,7 @@ trait BabysitterTools {
     time >= START_CUTOFF
   }
 
-  def timeIsAfterEndCutoff(time: Int): Boolean = {
+  def timeIsEqualOrAfterEndCutoff(time: Int): Boolean = {
     time > END_CUTOFF
   }
 
