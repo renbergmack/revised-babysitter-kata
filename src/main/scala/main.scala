@@ -42,7 +42,7 @@ trait BabysitterTools {
     if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterStartCutoff(end)) {
       val workedHours = start - end
       calculatePay(payRate, workedHours)
-    } else if (timeIsEqualOrAfterStartCutoff(start) && end >= END_CUTOFF) {
+    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
       val workedHours = start - (end + START_CUTOFF)
       calculatePay(payRate, workedHours)
     } else {
