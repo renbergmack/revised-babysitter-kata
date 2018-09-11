@@ -135,6 +135,11 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsOnlyBeforeBedtime(timeAfterBedtime) should be (true)
   }
 
+  "timeIsMidnight" should "return true if is midnight" in {
+    val mignight: Int = 24
+    timeIsMidnight(mignight) should be (true)
+  }
+
   "calculatePay" should "return payment amount if time and pay rate are positive" in {
     val hours: Int = 3
     val payRate: Int = 8
