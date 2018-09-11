@@ -50,7 +50,7 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrAfterStartCutoff(timeBeforeCutoff) should be (false)
   }
 
-  "timeIsAfterEndCutoff" should "return true if time is after end cutoff" in {
+  "timeIsEqualOrAfterEndCutoff" should "return true if time is after end cutoff" in {
     val timeAfterCutoff: Int = 18
     timeIsAfterEndCutoff(timeAfterCutoff) should be (true)
   }
