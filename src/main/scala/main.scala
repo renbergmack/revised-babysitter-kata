@@ -33,7 +33,7 @@ trait BabysitterTools {
   }
 
   def hoursWorkedBetweenMidnightAndEnd(end: Int): Int = {
-    
+    0
   }
 
   def timeIsEqualOrAfterStartCutoff(time: Int): Boolean = {
