@@ -88,9 +88,14 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrBeforeMidnight(timeBeforeMidnight) should be (true)
   }
 
-  it should "return true if time is equal to end cutoff" in {
+  it should "return true if time is equal to midnight" in {
     val timeEqualToMidnight: Int = 24
-    timeIsEqualOrAfterEndCutoff(timeEqualToMidnight) should be (true)
+    timeIsEqualOrBeforeMidnight(timeEqualToMidnight) should be (true)
+  }
+
+  it should "return false if time is after midnight" in {
+    val timeAfterMidnight: Int = 25
+    timeIsEqualOrBeforeMidnight(timeAfterMidnight) should be (false)
   }
 
 
