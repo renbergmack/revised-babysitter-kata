@@ -93,8 +93,12 @@ trait BabysitterTools {
     }
   }
 
-  def payFromMidnightToEnd(): Int = {
-    0
+  def payFromMidnightToEnd(start: Int, end: Int, payRate: Int = 16): Int = {
+    if (timeIsEqualOrAfterEndCutoff(start) && timeIsEqualOrBeforeMidnight(start) && timeIsEqualOrBeforeEndCutoff(end)) {
+      calculatePay(payRate, end)
+    } else {
+      0
+    }
   }
 
 }

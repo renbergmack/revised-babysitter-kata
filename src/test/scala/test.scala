@@ -218,7 +218,9 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "payFromMidnightToEnd" should "return pay if start is past end(4)" in {
-    payFromMidnightToEnd() should be (64)
+    val start = 5
+    val end = 4
+    payFromMidnightToEnd(start, end) should be (64)
   }
 
 }
