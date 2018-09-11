@@ -153,6 +153,11 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrAfterMidnight(mignight) should be (true)
   }
 
+  it should "return true if is equal to midnight" in {
+    val mignight: Int = 24
+    timeIsEqualOrAfterMidnight(mignight) should be (true)
+  }
+
 
 
 
