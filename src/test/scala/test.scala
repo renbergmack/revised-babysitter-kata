@@ -110,8 +110,6 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrAfterBedtime(timeBeforeBedtime) should be (false)
   }
 
-
-
   "timeIsEqualOrBeforeBedtime" should "return true if time is before bedtime" in {
     val timeBeforeBedtime: Int = 19
     timeIsEqualOrBeforeBedtime(timeBeforeBedtime) should be (true)
@@ -122,6 +120,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     timeIsEqualOrBeforeBedtime(timeEqualToBedtime) should be (true)
   }
 
+  it should "return false if time is after bedtime" in {
+    val timeAfterBedtime: Int = 22
+    timeIsEqualOrBeforeBedtime(timeAfterBedtime) should be (false)
+  }
 
   "calculatePay" should "return payment amount if time and pay rate are positive" in {
     val hours: Int = 3
