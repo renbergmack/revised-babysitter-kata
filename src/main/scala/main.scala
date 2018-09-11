@@ -35,7 +35,7 @@ trait BabysitterTools {
   }
 
   def timeIsEqualOrAfterEndCutoff(time: Int): Boolean = {
-    time > END_CUTOFF
+    time >= END_CUTOFF
   }
 
   def payFromStartToBedtime(start: Int, end: Int, payRate: Int = 12): Int = {
