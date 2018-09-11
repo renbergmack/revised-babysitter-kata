@@ -33,7 +33,9 @@ trait BabysitterTools {
   }
 
   def hoursWorkedBetweenMidnightAndEnd(end: Int): Int = {
-    if(end >= 1 && end <= 4) {
+    if (end >= 4) {
+      4
+    } else if (end >= 1 && end <= 4) {
       val hoursBeforeEnd = Math.abs(END_CUTOFF - end)
       val hoursWorked = END_CUTOFF - hoursBeforeEnd
       hoursWorked
