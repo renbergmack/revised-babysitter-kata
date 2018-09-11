@@ -70,6 +70,10 @@ trait BabysitterTools {
     time == MIDNIGHT
   }
 
+  def timeIsBetweenMidnightAndEndCutoff(): Boolean = {
+    false
+  }
+
   def timeIsEqualOrAfterMidnight(time: Int): Boolean = {
     time >= 1
   }
