@@ -268,6 +268,12 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     payFromBedtimeToMidnight(start, end) should be (24)
   }
 
+  it should "return pay when start is a negative number" in {
+    val start = -2
+    val end = 4
+    payFromBedtimeToMidnight(start, end) should be (24)
+  }
+
   "payFromMidnightToEnd" should "return pay if start is past end(4)" in {
     val start = 5
     val end = 4
