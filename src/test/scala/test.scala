@@ -187,7 +187,7 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     calculatePay(hours, payRate) should be (24)
   }
 
-  "hoursWorkedBetweenMidnightAndEnd" should "return correct pay between midnight and end" in {
+  "hoursWorkedBetweenMidnightAndEnd" should "return correct pay at end cutoff" in {
     val end: Int = 4
     hoursWorkedBetweenMidnightAndEnd(end) should be (4)
   }
