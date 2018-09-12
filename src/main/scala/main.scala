@@ -168,8 +168,8 @@ trait Babysitter {
     }
   }
 
-  def startOnlyBeforeStartCutoff(): Int = {
-    false
+  def startOnlyBeforeStartCutoff(start: Int): Boolean = {
+    start <= 16
   }
 
   def payFromMidnightToEnd(startTime: Int, end: Int, isPayTotal: Boolean = false, payRate: Int = 16): Int = {

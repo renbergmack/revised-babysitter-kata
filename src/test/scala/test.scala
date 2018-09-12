@@ -427,6 +427,6 @@ class BabysitterTest extends FlatSpec with Babysitter {
   }
 
   "startOnlyBeforeStartCutoff" should "return true if before pay" in {
-    startOnlyBeforeStartCutoff() should be (true)
+    startOnlyBeforeStartCutoff(15) should be (true)
   }
 }
