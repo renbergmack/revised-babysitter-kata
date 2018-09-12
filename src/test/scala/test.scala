@@ -361,6 +361,12 @@ class BabysitterTest extends FlatSpec with Babysitter {
     sumOfPay(start, bedtime) should be (0)
   }
 
+  it should "return full pay for each pay period" in {
+    val start: Int = 16
+    val bedtime: Int = 5
+    sumOfPay(start, bedtime) should be (104)
+  }
+
   "setEndToBedtime" should "return bedtime if after bedtime" in {
     val timeAfterBedtime: Int = 22
     setEndToBedtime(timeAfterBedtime) should be (21)
