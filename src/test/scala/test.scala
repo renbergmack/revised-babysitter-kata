@@ -364,4 +364,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     val timeAfterMidnight: Int = 2
     setEndToMidnight(startTime, timeAfterMidnight) should be (24)
   }
+
+  it should "return current time if start is before end" in {
+    val startTime: Int = 2
+    val timeAfterMidnight: Int = 3
+    setEndToMidnight(startTime, timeAfterMidnight) should be (3)
+  }
 }
