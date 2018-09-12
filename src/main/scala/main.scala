@@ -84,8 +84,9 @@ trait BabysitterTools {
     time >= 1
   }
 
-  def payFromStartToBedtime(startTime: Int, end: Int, startToBedtimePay: Int = 12): Int = {
+  def payFromStartToBedtime(startTime: Int, endTime: Int, startToBedtimePay: Int = 12): Int = {
     val start: Int = setStartTime(startTime)
+    val end: Int = if (BEDTIME <= endTime) BEDTIME else endTime
 
     if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterStartCutoff(end)) {
       val workedHours = start - end
@@ -101,14 +102,20 @@ trait BabysitterTools {
     }
   }
 
-  def payFromBedtimeToMidnight(startTime: Int, end: Int, payRate: Int = 8): Int = {
-    val start: Int = setStartTime(startTime)
+  def payFromBedtimeToMidnight(startTime: Int, endTime: Int, payRate: Int = 8): Int = {
+    val start = if (BEDTIME > startTime) BEDTIME else startTime
+    val end = if (start > endTime && !(endTime >= 21)) 24 else endTime
 
     if (timeIsOnlyBeforeBedtime(start) && (timeIsEqualOrBeforeEndCutoff(end) || timeIsMidnight(end))) {
-      val hoursBetweenBedtimeToMidnight = 3
-      calculatePay(payRate, hoursBetweenBedtimeToMidnight)
+      calculatePay(payRate, 3)
+    } else if (start <= 21 && end <= 21 && !(end <=4)){
+      0
     } else if (timeIsEqualOrBeforeBedtime(start) && (timeIsEqualOrAfterBedtime(end) || timeIsEqualOrBeforeEndCutoff(end))) {
-      val hoursWorked = start - MIDNIGHT
+      val hoursWorked = if (start <= 21) {
+        21 - end
+      } else {
+        MIDNIGHT - start
+      }
       calculatePay(payRate, hoursWorked)
     } else if (timeIsEqualOrAfterBedtime(start) && timeIsEqualOrBeforeMidnight(end)) {
       val hoursWorked = start - end
@@ -136,7 +143,12 @@ trait BabysitterTools {
 
   def sumOfPay(start: Int, end: Int): Int = {
     val payToBedtime = payFromStartToBedtime(start, end)
-    payToBedtime
+    println("payToBedtime: " + payToBedtime)
+    val payToMidnight = payFromBedtimeToMidnight(start, end)
+    println("payToMidnight: " + payToMidnight)
+    val total = payToBedtime + payToMidnight
+    println(total.toString)
+    total
   }
 
 }
