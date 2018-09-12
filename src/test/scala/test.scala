@@ -419,6 +419,8 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "startNotEqualToEnd" should "return true if start is not equal to end" in {
-    startNotEqualToEnd() should be true
+    val start: Int = 17
+    val end: Int = 22
+    startNotEqualToEnd(start, end) should be (true)
   }
 }
