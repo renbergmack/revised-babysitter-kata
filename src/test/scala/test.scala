@@ -377,21 +377,27 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     setEndToMidnight(startTime, timeAfterMidnight) should be (24)
   }
 
-  it should "return current time if start is before end" in {
+  it should "return end time if start is before end" in {
     val startTime: Int = 2
     val timeAfterMidnight: Int = 3
     setEndToMidnight(startTime, timeAfterMidnight) should be (3)
   }
 
-  it should "return current time if end is before bedtime" in {
+  it should "return end time if end is before bedtime" in {
     val start: Int = 17
     val end: Int = 20
     setEndToMidnight(start, end) should be (20)
   }
 
-  it should "return ddd time if end is before bedtime" in {
+  it should "return end time if end is equal or after bedtime" in {
     val start: Int = 17
     val end: Int = 21
     setEndToMidnight(start, end) should be (21)
+  }
+
+  it should "return end time if end and start are not the same" in {
+    val start: Int = 17
+    val end: Int = 17
+    setEndToMidnight(start, end) should be (17)
   }
 }
