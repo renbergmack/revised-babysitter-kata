@@ -400,4 +400,11 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     val end: Int = 17
     setEndToMidnight(start, start, end) should be (17)
   }
+
+  it should "return midnight if end and original start are the same" in {
+    val start: Int = 17
+    val originalStart: Int = 22
+    val end: Int = 22
+    setEndToMidnight(start, originalStart, end) should be (22)
+  }
 }
