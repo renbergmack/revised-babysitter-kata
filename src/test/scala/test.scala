@@ -15,15 +15,10 @@ class BabysitterTest extends FlatSpec with Babysitter {
     setStartTime(laterStart) should be (18)
   }
 
-  // "setEndTime" should "return 4 when a time later than 4 is declared" in {
-  //   val lateEnd: Int = 5
-  //   setEndTime(lateEnd) should be (4)
-  // }
-  //
-  // it should "return the end time when a time earlier than 4 is declared" in {
-  //   val lateEnd: Int = 3
-  //   setEndTime(lateEnd) should be (3)
-  // }
+  "setStartToStartCutoff" should "return 4 when a time later than 4 is declared" in {
+    val start: Int = 16
+    setEndTime(start) should be (17)
+  }
 
   "roundToNextHour" should "return next hourly time when minutes less than 30" in {
     val earlyStart: Double = 17.4

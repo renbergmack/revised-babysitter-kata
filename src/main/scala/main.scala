@@ -47,30 +47,6 @@ trait Babysitter {
     }
   }
 
-  def payFromStartToBedtime(startTime: Int, endTime: Int, startToBedtimePay: Int = 12): Int = {
-    val start: Int = setStartToStartCutoff(startTime)
-    val end: Int = setEndToEqualOrAfterBedtime(endTime)
-
-    if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterStartCutoff(end)) {
-      val workedHours = start - end
-      calculatePay(startToBedtimePay, workedHours)
-    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
-      val workedHours = if (start >= BEDTIME) {
-        0
-      } else if (end < START_CUTOFF) {
-        END_CUTOFF
-      } else {
-        start - (end + START_CUTOFF)
-      }
-      calculatePay(startToBedtimePay, workedHours)
-    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
-      val workedHours = BEDTIME - start
-      calculatePay(startToBedtimePay, workedHours)
-    } else {
-      0
-    }
-  }
-
   def roundToNextHour(time: Double): Int = {
     Math.ceil(time).toInt
   }
@@ -144,6 +120,30 @@ trait Babysitter {
     time >= 1
   }
 
+  def payFromStartToBedtime(startTime: Int, endTime: Int, startToBedtimePay: Int = 12): Int = {
+    val start: Int = setStartToStartCutoff(startTime)
+    val end: Int = setEndToEqualOrAfterBedtime(endTime)
+
+    if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterStartCutoff(end)) {
+      val workedHours = start - end
+      calculatePay(startToBedtimePay, workedHours)
+    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
+      val workedHours = if (start >= BEDTIME) {
+        0
+      } else if (end < START_CUTOFF) {
+        END_CUTOFF
+      } else {
+        start - (end + START_CUTOFF)
+      }
+      calculatePay(startToBedtimePay, workedHours)
+    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
+      val workedHours = BEDTIME - start
+      calculatePay(startToBedtimePay, workedHours)
+    } else {
+      0
+    }
+  }
+
   def payFromBedtimeToMidnight(startTime: Int, endTime: Int, payRate: Int = 8): Int = {
     val start = setStartToBedtime(startTime)
     val end = setEndToMidnight(start, startTime, endTime)
@@ -190,7 +190,7 @@ trait Babysitter {
 
   def sumOfPay(start: Int, end: Int): Int = {
     val payToBedtime = payFromStartToBedtime(start, end)
-    
+
     val payToMidnight = payFromBedtimeToMidnight(start, end)
 
     val startToMidnightTotal: Int = 72
