@@ -175,6 +175,28 @@ class BabysitterTest extends FlatSpec with Babysitter {
     timeIsBetweenMidnightAndEndCutoff(start) should be (false)
   }
 
+  "timeIsNotEqualOrAfterBedtime" should "return true if time is before bedtime" in {
+    val beforeBedtime: Int = 20
+    timeIsNotEqualOrAfterBedtime(beforeBedtime) should be (true)
+  }
+
+  it should "return false if time is after or equal to bedtime" in {
+    val afterBedtime: Int = 22
+    timeIsNotEqualOrAfterBedtime(afterBedtime) should be (false)
+  }
+
+  "startNotEqualToEnd" should "return true if start is not equal to end" in {
+    val start: Int = 17
+    val end: Int = 22
+    startNotEqualToEnd(start, end) should be (true)
+  }
+
+  it should "return false if start is not equal to end" in {
+    val start: Int = 17
+    val end: Int = 17
+    startNotEqualToEnd(start, end) should be (false)
+  }
+
   "calculatePay" should "return payment amount if time and pay rate are positive" in {
     val hours: Int = 3
     val payRate: Int = 8
@@ -406,27 +428,5 @@ class BabysitterTest extends FlatSpec with Babysitter {
     val originalStart: Int = 22
     val end: Int = 22
     setEndToMidnight(start, originalStart, end) should be (22)
-  }
-
-  "timeIsNotEqualOrAfterBedtime" should "return true if time is before bedtime" in {
-    val beforeBedtime: Int = 20
-    timeIsNotEqualOrAfterBedtime(beforeBedtime) should be (true)
-  }
-
-  it should "return false if time is after or equal to bedtime" in {
-    val afterBedtime: Int = 22
-    timeIsNotEqualOrAfterBedtime(afterBedtime) should be (false)
-  }
-
-  "startNotEqualToEnd" should "return true if start is not equal to end" in {
-    val start: Int = 17
-    val end: Int = 22
-    startNotEqualToEnd(start, end) should be (true)
-  }
-
-  it should "return false if start is not equal to end" in {
-    val start: Int = 17
-    val end: Int = 17
-    startNotEqualToEnd(start, end) should be (false)
   }
 }
