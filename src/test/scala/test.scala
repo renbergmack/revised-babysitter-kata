@@ -426,7 +426,11 @@ class BabysitterTest extends FlatSpec with Babysitter {
     setEndToMidnight(start, originalStart, end) should be (22)
   }
 
-  "startOnlyBeforeStartCutoff" should "return true if before pay" in {
+  "startOnlyBeforeStartCutoff" should "return true if only before start cutoff" in {
     startOnlyBeforeStartCutoff(15) should be (true)
+  }
+
+  it should "return false if only after start cutoff" in {
+    startOnlyBeforeStartCutoff(18) should be (false)
   }
 }
