@@ -340,6 +340,7 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
   }
 
   "setEndToBedtime" should "return bedtime if after bedtime" in {
-    setEndToBedtime should be (21)
+    val timeAdterBedtime: Int = 22
+    setEndToBedtime(timeAdterBedtime) should be (21)
   }
 }
