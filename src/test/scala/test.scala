@@ -417,4 +417,8 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     val afterBedtime: Int = 22
     timeIsNotEqualOrAfterBedtime(afterBedtime) should be (false)
   }
+
+  "startNotEqualToEnd" should "return true if start is not equal to end" in {
+    startNotEqualToEnd() should be true
+  }
 }
