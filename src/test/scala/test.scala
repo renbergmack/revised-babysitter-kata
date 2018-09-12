@@ -423,4 +423,5 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     val end: Int = 22
     startNotEqualToEnd(start, end) should be (true)
   }
+
 }

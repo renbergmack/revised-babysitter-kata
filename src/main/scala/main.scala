@@ -68,7 +68,7 @@ trait BabysitterTools {
     }
   }
 
-  def startNotEqualToEnd(start: Int, end: Int): Int = {
+  def startNotEqualToEnd(start: Int, end: Int): Boolean = {
     start != end
   }
 
