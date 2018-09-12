@@ -359,7 +359,13 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     setStartToBedtime(timeAfterBedtime) should be (22)
   }
 
-  "startIsAfterEnd" should "return true if start is after end" in {
+  "startIsAfterEnd" should "return false if start is before end" in {
+    val startTime: Int = 2
+    val timeEnd: Int = 3
+    startIsAfterEnd(startTime, timeEnd) should be (false)
+  }
+
+  it should "return false if start is after end" in {
     val startTime: Int = 3
     val timeEnd: Int = 2
     startIsAfterEnd(startTime, timeEnd) should be (true)
