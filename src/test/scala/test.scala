@@ -315,4 +315,8 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     payFromMidnightToEnd(start, end) should be (0)
   }
 
+  "sumOfPay" should "return pay if time is between start and bedtime" {
+    sumOfPay() should be (48)
+  }
+
 }

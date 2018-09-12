@@ -134,4 +134,8 @@ trait BabysitterTools {
     }
   }
 
+  def sumOfPay(): Int = {
+    0
+  }
+
 }
