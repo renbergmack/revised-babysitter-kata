@@ -172,6 +172,10 @@ trait Babysitter {
     start <= 16
   }
 
+  def noPay(): Boolean = {
+    false
+  }
+
   def payFromMidnightToEnd(startTime: Int, end: Int, isPayTotal: Boolean = false, payRate: Int = 16): Int = {
     val start: Int = setStartTime(startTime)
     val totalPayToEnd: Int = 64
@@ -185,7 +189,7 @@ trait Babysitter {
     } else if (timeIsEqualOrAfterEndCutoff(start) && timeIsEqualOrBeforeMidnight(start) && timeIsEqualOrBeforeEndCutoff(end)) {
       calculatePay(payRate, end)
     } else if (timeIsEqualOrBeforeMidnight(start) || (timeIsEqualOrAfterMidnight(start) && timeIsEqualOrBeforeEndCutoff(start))) {
-       val midnightToEndPay: Int = if (start <= 16) totalPayToEnd else 0
+       val midnightToEndPay: Int = if (startOnlyBeforeStartCutoff(start)) totalPayToEnd else 0
        val total: Int = if (midnightToEndPay == 0 && isPayTotal) totalPayToEnd else 0
        total
     } else {
@@ -199,7 +203,7 @@ trait Babysitter {
     val payToMidnight = payFromBedtimeToMidnight(start, end)
 
     val startToMidnightTotal: Int = 72
-    val hasTotalPay = if ((payToBedtime + payToMidnight) == startToMidnightTotal) {true} else {false}
+    val hasTotalPay = if ((payToBedtime + payToMidnight) == startToMidnightTotal) true else false
     val payToEnd = payFromMidnightToEnd(start, end, hasTotalPay)
 
     payToBedtime + payToMidnight + payToEnd
