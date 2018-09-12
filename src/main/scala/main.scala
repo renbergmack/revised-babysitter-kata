@@ -1,6 +1,6 @@
 package org.babysitter
 
-trait BabysitterTools {
+trait Babysitter {
 
   val START_CUTOFF = 17
   val BEDTIME = 21
@@ -8,7 +8,7 @@ trait BabysitterTools {
   val END_CUTOFF = 4
 
   def setEndToMidnight(start: Int, startTime: Int, end: Int): Int = {
-    if (startIsAfterEnd(start, end) && timeIsNotEqualOrAfterBedtime(end) && startTime != end) {
+    if (startIsAfterEnd(start, end) && timeIsNotEqualOrAfterBedtime(end) && startNotEqualToEnd(startTime, end)) {
       MIDNIGHT
     } else {
       end
@@ -143,7 +143,8 @@ trait BabysitterTools {
     val end = setEndToMidnight(start, startTime, endTime)
 
     if (timeIsOnlyBeforeBedtime(start) && (timeIsEqualOrBeforeEndCutoff(end) || timeIsMidnight(end))) {
-      calculatePay(payRate, 3)
+      val hoursBetweenBedtimeToMidnight: Int = 3
+      calculatePay(payRate, hoursBetweenBedtimeToMidnight)
     } else if (timeIsEqualOrBeforeBedtime(start) && timeIsEqualOrBeforeBedtime(end) && !timeIsEqualOrBeforeEndCutoff(end)){
       0
     } else if (timeIsEqualOrBeforeBedtime(start) && (timeIsEqualOrAfterBedtime(end) || timeIsEqualOrBeforeEndCutoff(end))) {

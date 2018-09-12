@@ -3,7 +3,7 @@ package org.babysitter
 import org.scalatest._
 import Matchers._
 
-class BabysitterTest extends FlatSpec with BabysitterTools {
+class BabysitterTest extends FlatSpec with Babysitter {
 
   "setStartTime" should "return 17 when an earlier start time is declared" in {
     val earlierStart: Int = 16
