@@ -8,10 +8,10 @@ trait BabysitterTools {
   val END_CUTOFF = 4
 
   def setEndToMidnight(start: Int, end: Int): Int = {
-    if (startIsAfterEnd(start, end) && !(timeIsEqualOrAfterBedtime(end)) && start != end) {
+    if (start > endTime && !(timeIsEqualOrAfterBedtime(endTime)) && startTime != endTime) {
       MIDNIGHT
-     } else {
-      end
+    } else {
+      endTime
     }
   }
 
