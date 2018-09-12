@@ -15,15 +15,15 @@ class BabysitterTest extends FlatSpec with Babysitter {
     setStartTime(laterStart) should be (18)
   }
 
-  "setEndTime" should "return 4 when a time later than 4 is declared" in {
-    val lateEnd: Int = 5
-    setEndTime(lateEnd) should be (4)
-  }
-
-  it should "return the end time when a time earlier than 4 is declared" in {
-    val lateEnd: Int = 3
-    setEndTime(lateEnd) should be (3)
-  }
+  // "setEndTime" should "return 4 when a time later than 4 is declared" in {
+  //   val lateEnd: Int = 5
+  //   setEndTime(lateEnd) should be (4)
+  // }
+  //
+  // it should "return the end time when a time earlier than 4 is declared" in {
+  //   val lateEnd: Int = 3
+  //   setEndTime(lateEnd) should be (3)
+  // }
 
   "roundToNextHour" should "return next hourly time when minutes less than 30" in {
     val earlyStart: Double = 17.4
@@ -364,18 +364,18 @@ class BabysitterTest extends FlatSpec with Babysitter {
   it should "return full pay for each pay period" in {
     val start: Int = 16
     val bedtime: Int = 5
-    sumOfPay(start, bedtime) should be (104)
+    sumOfPay(start, bedtime) should be (136)
   }
 
-  "setEndToBedtime" should "return bedtime if after bedtime" in {
-    val timeAfterBedtime: Int = 22
-    setEndToBedtime(timeAfterBedtime) should be (21)
-  }
-
-  it should "return time if it is before bedtime" in {
-    val timeAfterBedtime: Int = 20
-    setEndToBedtime(timeAfterBedtime) should be (20)
-  }
+  // "setEndToBedtime" should "return bedtime if after bedtime" in {
+  //   val timeAfterBedtime: Int = 22
+  //   setEndToBedtime(timeAfterBedtime) should be (21)
+  // }
+  //
+  // it should "return time if it is before bedtime" in {
+  //   val timeAfterBedtime: Int = 20
+  //   setEndToBedtime(timeAfterBedtime) should be (20)
+  // }
 
   "setStartToBedtime" should "return bedtime if before bedtime" in {
     val timeBeforeBedtime: Int = 20
