@@ -437,4 +437,8 @@ class BabysitterTest extends FlatSpec with Babysitter {
   "noPay" should "return true if there is pay" in {
     noPay(0) should be (true)
   }
+
+  it should "return false if there no pay" in {
+    noPay(16) should be (false)
+  }
 }
