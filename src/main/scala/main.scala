@@ -68,8 +68,8 @@ trait BabysitterTools {
     }
   }
 
-  def startIsAfterEnd(): Boolean = {
-    false
+  def startIsAfterEnd(start: Int, end: Int): Boolean = {
+    start > end
   }
 
   def timeIsEqualOrAfterStartCutoff(time: Int): Boolean = {
