@@ -146,7 +146,9 @@ trait BabysitterTools {
     println("payToBedtime: " + payToBedtime)
     val payToMidnight = payFromBedtimeToMidnight(start, end)
     println("payToMidnight: " + payToMidnight)
-    val total = payToBedtime + payToMidnight
+    val payToEnd = payFromMidnightToEnd(start, end)
+    println("payToEnd: " + payToEnd)
+    val total = payToBedtime + payToMidnight + payToEnd
     println(total.toString)
     total
   }
