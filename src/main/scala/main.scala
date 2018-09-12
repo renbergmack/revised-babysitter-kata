@@ -134,8 +134,9 @@ trait BabysitterTools {
     }
   }
 
-  def sumOfPay(): Int = {
-    0
+  def sumOfPay(start: Int, end: Int): Int = {
+    val payToBedtime = payFromStartToBedtime(start, end)
+    payToBedtime
   }
 
 }
