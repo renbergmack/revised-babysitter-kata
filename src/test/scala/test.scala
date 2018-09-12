@@ -333,4 +333,10 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     sumOfPay(start, bedtime) should be (104)
   }
 
+  it should "return no pay if time for start and end is the same" in {
+    val start: Int = 17
+    val bedtime: Int = 17
+    sumOfPay(start, bedtime) should be (0)
+  }
+
 }
