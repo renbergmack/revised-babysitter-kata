@@ -92,8 +92,8 @@ trait BabysitterTools {
     time >= BEDTIME
   }
 
-  def timeIsNotEqualOrAfterBedtime(): Boolean = {
-    false
+  def timeIsNotEqualOrAfterBedtime(time: Int): Boolean = {
+    !(time >= BEDTIME)
   }
 
   def timeIsEqualOrBeforeBedtime(time: Int): Boolean = {
