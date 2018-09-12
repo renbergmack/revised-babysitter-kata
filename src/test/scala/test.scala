@@ -338,5 +338,4 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     val bedtime: Int = 17
     sumOfPay(start, bedtime) should be (0)
   }
-
 }
