@@ -138,7 +138,7 @@ trait Babysitter {
     } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
       val workedHours = if (timeIsEqualOrAfterBedtime(start)) {
         0
-      } else if (end < START_CUTOFF) {
+      } else if (/*end < START_CUTOFF */startIsAfterEnd(START_CUTOFF, end)) {
         END_CUTOFF
       } else {
         start - (end + START_CUTOFF)
