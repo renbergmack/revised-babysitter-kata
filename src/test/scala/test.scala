@@ -425,4 +425,8 @@ class BabysitterTest extends FlatSpec with Babysitter {
     val end: Int = 22
     setEndToMidnight(start, originalStart, end) should be (22)
   }
+
+  "startOnlyBeforeStartCutoff" should "return true if before pay" in {
+    startOnlyBeforeStartCutoff() should be (true)
+  }
 }

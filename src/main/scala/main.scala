@@ -168,6 +168,10 @@ trait Babysitter {
     }
   }
 
+  def startOnlyBeforeStartCutoff(): Int = {
+    false
+  }
+
   def payFromMidnightToEnd(startTime: Int, end: Int, isPayTotal: Boolean = false, payRate: Int = 16): Int = {
     val start: Int = setStartTime(startTime)
     val totalPayToEnd: Int = 64
