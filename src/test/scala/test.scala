@@ -354,8 +354,13 @@ class BabysitterTest extends FlatSpec with BabysitterTools {
     setStartToBedtime(timeBeforeBedtime) should be (21)
   }
 
-  it should "return bedtime if after bedtime" in {
+  it should "return time if after bedtime" in {
     val timeAfterBedtime: Int = 22
     setStartToBedtime(timeAfterBedtime) should be (22)
+  }
+
+  "setEndToMidnight" should "return midnight if time is after midnight" in {
+    val timeAfterMidnight: Int = 2
+    setEndToMidnight(timeAfterMidnight) should be (24)
   }
 }

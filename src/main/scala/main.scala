@@ -7,6 +7,10 @@ trait BabysitterTools {
   val MIDNIGHT = 24
   val END_CUTOFF = 4
 
+  def setEndToMidnight(): Int = {
+    0
+  }
+
   def setStartToBedtime(startTime: Int): Int = {
     if (BEDTIME > startTime) {
       BEDTIME
@@ -120,7 +124,7 @@ trait BabysitterTools {
 
   def payFromBedtimeToMidnight(startTime: Int, endTime: Int, payRate: Int = 8): Int = {
     val start = setStartToBedtime(startTime)
-    val end = if (start > endTime && !(timeIsEqualOrAfterBedtime(endTime)) && startTime != endTime) 24 else endTime
+    val end = if (start > endTime && !(timeIsEqualOrAfterBedtime(endTime)) && startTime != endTime) MIDNIGHT else endTime
 
     if (timeIsOnlyBeforeBedtime(start) && (timeIsEqualOrBeforeEndCutoff(end) || timeIsMidnight(end))) {
       calculatePay(payRate, 3)
