@@ -137,12 +137,12 @@ trait Babysitter {
       calculatePay(startToBedtimePay, workedHours)
     } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
       val workedHours = if (timeIsEqualOrAfterBedtime(start)) {
-        0
-      } else if (/*end < START_CUTOFF */startIsAfterEnd(START_CUTOFF, end)) {
-        END_CUTOFF
-      } else {
-        start - (end + START_CUTOFF)
-      }
+          0
+        } else if (startIsAfterEnd(START_CUTOFF, end)) {
+          END_CUTOFF
+        } else {
+          start - (end + START_CUTOFF)
+        }
       calculatePay(startToBedtimePay, workedHours)
     } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
       val workedHours = BEDTIME - start
@@ -163,10 +163,10 @@ trait Babysitter {
       0
     } else if (timeIsEqualOrBeforeBedtime(start) && (timeIsEqualOrAfterBedtime(end) || timeIsEqualOrBeforeEndCutoff(end))) {
       val hoursWorked = if (timeIsEqualOrBeforeBedtime(start)) {
-        BEDTIME - end
-      } else {
-        MIDNIGHT - start
-      }
+          BEDTIME - end
+        } else {
+          MIDNIGHT - start
+        }
       calculatePay(payRate, hoursWorked)
     } else if (timeIsEqualOrAfterBedtime(start) && timeIsEqualOrBeforeMidnight(end)) {
       val hoursWorked = start - end
