@@ -172,8 +172,8 @@ trait Babysitter {
     start <= 16
   }
 
-  def noPay(): Boolean = {
-    false
+  def noPay(pay: Int): Boolean = {
+    pay == 0
   }
 
   def payFromMidnightToEnd(startTime: Int, end: Int, isPayTotal: Boolean = false, payRate: Int = 16): Int = {
