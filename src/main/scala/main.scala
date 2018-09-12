@@ -190,7 +190,7 @@ trait Babysitter {
       calculatePay(payRate, end)
     } else if (timeIsEqualOrBeforeMidnight(start) || (timeIsEqualOrAfterMidnight(start) && timeIsEqualOrBeforeEndCutoff(start))) {
        val midnightToEndPay: Int = if (startOnlyBeforeStartCutoff(start)) totalPayToEnd else 0
-       val total: Int = if (midnightToEndPay == 0 && isPayTotal) totalPayToEnd else 0
+       val total: Int = if (noPay(midnightToEndPay) && isPayTotal) totalPayToEnd else 0
        total
     } else {
       totalPayToEnd
