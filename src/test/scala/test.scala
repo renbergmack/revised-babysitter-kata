@@ -427,18 +427,22 @@ class BabysitterTest extends FlatSpec with Babysitter {
   }
 
   "startOnlyBeforeStartCutoff" should "return true if only before start cutoff" in {
-    startOnlyBeforeStartCutoff(15) should be (true)
+    val beforeStartCutoff: Int = 15
+    startOnlyBeforeStartCutoff(beforeStartCutoff) should be (true)
   }
 
   it should "return false if only after start cutoff" in {
-    startOnlyBeforeStartCutoff(18) should be (false)
+    val afterStartCutoff: Int = 18
+    startOnlyBeforeStartCutoff(afterStartCutoff) should be (false)
   }
 
-  "noPay" should "return true if there is pay" in {
-    noPay(0) should be (true)
+  "noPay" should "return true if there is no pay" in {
+    val zeroPay: Int = 0
+    noPay(zeroPay) should be (true)
   }
 
-  it should "return false if there no pay" in {
-    noPay(16) should be (false)
+  it should "return false if there is pay" in {
+    val somePay: Int = 16
+    noPay(somePay) should be (false)
   }
 }

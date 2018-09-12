@@ -120,6 +120,14 @@ trait Babysitter {
     time >= 1
   }
 
+  def startOnlyBeforeStartCutoff(start: Int): Boolean = {
+    start <= 16
+  }
+
+  def noPay(pay: Int): Boolean = {
+    pay == 0
+  }
+
   def payFromStartToBedtime(startTime: Int, endTime: Int, startToBedtimePay: Int = 12): Int = {
     val start: Int = setStartToStartCutoff(startTime)
     val end: Int = setEndToEqualOrAfterBedtime(endTime)
@@ -166,14 +174,6 @@ trait Babysitter {
     } else {
       0
     }
-  }
-
-  def startOnlyBeforeStartCutoff(start: Int): Boolean = {
-    start <= 16
-  }
-
-  def noPay(pay: Int): Boolean = {
-    pay == 0
   }
 
   def payFromMidnightToEnd(startTime: Int, end: Int, isPayTotal: Boolean = false, payRate: Int = 16): Int = {
