@@ -145,11 +145,9 @@ trait Babysitter {
           start - (end + START_CUTOFF)
         }
       calculatePay(startToBedtimePayRate, workedHours)
-    } else if (timeIsEqualOrAfterStartCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
+    } else {
       val workedHours = BEDTIME - start
       calculatePay(startToBedtimePayRate, workedHours)
-    } else {
-      0
     }
   }
 
@@ -158,10 +156,7 @@ trait Babysitter {
     val end = setEndToMidnight(start, startTime, endTime)
     val bedtimeToMidnightPayRate: Int = 8
 
-    if (timeIsOnlyBeforeBedtime(start) && (timeIsEqualOrBeforeEndCutoff(end) || timeIsMidnight(end))) {
-      val hoursBetweenBedtimeToMidnight: Int = 3
-      calculatePay(bedtimeToMidnightPayRate, hoursBetweenBedtimeToMidnight)
-    } else if (timeIsEqualOrBeforeBedtime(start) && timeIsEqualOrBeforeBedtime(end) && !timeIsEqualOrBeforeEndCutoff(end)){
+    if (timeIsEqualOrBeforeBedtime(start) && timeIsEqualOrBeforeBedtime(end) && !timeIsEqualOrBeforeEndCutoff(end)){
       0
     } else if (timeIsEqualOrBeforeBedtime(start) && (timeIsEqualOrAfterBedtime(end) || timeIsEqualOrBeforeEndCutoff(end))) {
       val hoursWorked = if (timeIsEqualOrBeforeBedtime(start)) {
@@ -170,11 +165,9 @@ trait Babysitter {
           MIDNIGHT - start
         }
       calculatePay(bedtimeToMidnightPayRate, hoursWorked)
-    } else if (timeIsEqualOrAfterBedtime(start) && timeIsEqualOrBeforeMidnight(end)) {
+    } else {
       val hoursWorked = start - end
       calculatePay(bedtimeToMidnightPayRate, hoursWorked)
-    } else {
-      0
     }
   }
 
@@ -183,20 +176,15 @@ trait Babysitter {
     val maxPayToEnd: Int = 64
     val midnightToEndPayRate: Int = 16
 
-    if (timeIsEqualOrAfterMidnight(start) && timeIsEqualOrBeforeEndCutoff(start) && timeIsEqualOrBeforeEndCutoff(end)) {
-      val hoursWorked = hoursWorkedBetweenMidnightAndEnd(end)
-      calculatePay(midnightToEndPayRate, hoursWorked)
-    } else if (timeIsBetweenMidnightAndEndCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
+    if (timeIsBetweenMidnightAndEndCutoff(start) && timeIsEqualOrAfterEndCutoff(end)) {
       val hoursWorked = hoursWorkedBetweenMidnightAndEnd(end)
       calculatePay(midnightToEndPayRate, hoursWorked)
     } else if (timeIsEqualOrAfterEndCutoff(start) && timeIsEqualOrBeforeMidnight(start) && timeIsEqualOrBeforeEndCutoff(end)) {
       calculatePay(midnightToEndPayRate, end)
-    } else if (timeIsEqualOrBeforeMidnight(start) || (timeIsEqualOrAfterMidnight(start) && timeIsEqualOrBeforeEndCutoff(start))) {
-       val midnightToEndPay: Int = if (startOnlyBeforeStartCutoff(start)) maxPayToEnd else 0
-       val pay: Int = if (noPay(midnightToEndPay) && isPayTotal) maxPayToEnd else 0
-       pay
     } else {
-      maxPayToEnd
+      val midnightToEndPay: Int = if (startOnlyBeforeStartCutoff(start)) maxPayToEnd else 0
+      val pay: Int = if (noPay(midnightToEndPay) && isPayTotal) maxPayToEnd else 0
+      pay
     }
   }
 
