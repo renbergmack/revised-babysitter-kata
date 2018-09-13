@@ -125,16 +125,6 @@ class BabysitterTest extends FlatSpec with Babysitter {
     timeIsEqualOrBeforeBedtime(timeAfterBedtime) should be (false)
   }
 
-  "timeIsOnlyBeforeBedtime" should "return true if time is before bedtime" in {
-    val timeBeforeBedtime: Int = 19
-    timeIsOnlyBeforeBedtime(timeBeforeBedtime) should be (true)
-  }
-
-  it should "return true if time is after bedtime" in {
-    val timeAfterBedtime: Int = 22
-    timeIsOnlyBeforeBedtime(timeAfterBedtime) should be (false)
-  }
-
   "timeIsMidnight" should "return true if is midnight" in {
     val mignight: Int = 24
     timeIsMidnight(mignight) should be (true)
@@ -424,25 +414,5 @@ class BabysitterTest extends FlatSpec with Babysitter {
     val originalStart: Int = 22
     val end: Int = 22
     setEndToMidnight(start, originalStart, end) should be (22)
-  }
-
-  "startOnlyBeforeStartCutoff" should "return true if only before start cutoff" in {
-    val beforeStartCutoff: Int = 15
-    startOnlyBeforeStartCutoff(beforeStartCutoff) should be (true)
-  }
-
-  it should "return false if only after start cutoff" in {
-    val afterStartCutoff: Int = 18
-    startOnlyBeforeStartCutoff(afterStartCutoff) should be (false)
-  }
-
-  "noPay" should "return true if there is no pay" in {
-    val zeroPay: Int = 0
-    noPay(zeroPay) should be (true)
-  }
-
-  it should "return false if there is pay" in {
-    val somePay: Int = 16
-    noPay(somePay) should be (false)
   }
 }
